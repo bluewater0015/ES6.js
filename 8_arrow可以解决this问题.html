@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>箭头函数</title>
+</head>
+<body>
+	<script>
+		class Animal{
+			constructor(){
+				this.type="animal";
+			}
+			says(say){
+				//console.log(this);//Animal {type: "animal"}
+				//var self = this;
+				//当我们使用箭头函数时，函数体内的this对象，就是定义时所在的对象，
+				//而不是使用时所在的对象
+				//并不是因为函数内部有绑定this机制，实际原因是箭头根本没有自己的this
+				//它的this是继承外面的，因此内部的this就是外层代码块的this
+				setTimeout(()=>{
+					//console.log(this);	//Animal{type:"animal"}
+					console.log(this.type+"say"+say); //animalsayhi 这是一种方法
+				},100)
+			}
+		}
+		var animal = new Animal();
+		animal.says("hi");
+	</script>
+</body>
+</html>

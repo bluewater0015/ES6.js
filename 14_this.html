@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>this</title>
+</head>
+<body>
+	<script>
+		//this
+	/*	var obj = {
+			name : "xiao",
+			age : 18,
+			run : function(){
+				console.log("正在进行中……");
+				console.log(this); //object{name:"xiao",age:18} this指代的就是这个对象obj
+			}
+		}
+		obj.run();*/
+
+		var name = "global";
+		function Person(){
+			this.name = "someone";
+		}
+		var people = new Person();
+		console.log(people.name);  //someone 
+
+	</script>
+</body>
+</html>

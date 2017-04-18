@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>class</title>
+</head>
+<body>
+	<script>
+		//ES6引入了类这个概念 解决ES5有关原型、构造函数、继承等问题
+		//
+		class Animal{
+			constructor(){   //这是一个构造方法
+				this.type = "animal"
+			}
+			says(say){ //这个方法定义在构造函数constuctor之外 因此所有实例对象可以共享
+				console.log(this.type+'\tsay\t'+say);
+			}
+		}
+		let animal = new Animal()  //实例 =  new 构造函数
+		animal.says('hello'); // animal say hello
+
+		class Cat extends Animal{  //Cat类继承了父类Animal的属性和方法
+			constructor(){			// 这是一个构造方法
+				super()				//super关键字 它指代父类的实例 
+				this.type = "cat"
+			}
+		}
+		let cat = new Cat()  // 实例 =  new  构造函数
+		cat.says('hello') //cat say hello
+
+		//先用class定义一个类
+		//里面有一个constructor 就是构造方法
+		//this 关键字代表实例对象
+		//简单的说 constructor内定义的属性和方法 是实例对象自己的 
+		//而constructor 外定义的属性和方法是所有实例对象可以共享的
+		
+		//class之间可以通过extends继承
+		//这比ES5通过修改原型链继承 要清晰和方便很多
+		//上面定义了一个cat类，该类通过extends关键字 继承了Animal所有方法和属性
+
+		//super关键字，它指代父类的实例(即父类的this对象)
+		//子类必须在constructor 方法中调用super方法
+		//否则新建实例时会报错，这是因为子类没有this对象，
+		//而是继承父类的this对象，然后对其进行加工
+		//如果不调用super，就得不到this对象
+	</script>
+</body>
+</html>

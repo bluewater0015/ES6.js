@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		class Animal{
+			constructor(){
+				this.type="animal";
+			}
+			says(say){
+				console.log(this.type+"say"+say);
+			}
+		}
+		var animal = new Animal();
+		animal.says("hello");
+	</script>
+</body>
+</html>

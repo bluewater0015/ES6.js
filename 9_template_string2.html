@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>template_string2</title>
+	<script src="js/jquery-3.0.0.js"></script>
+</head>
+<body>
+	<div id="box">
+	</div>
+	<script>
+		var a = 1;
+		var b =2;
+		$("#box").append(`
+			今天在学习<b>${a}<b>天的ES6就结束
+			之后用<em>${b}</em>天的时间分析react  源码
+		`);
+		//用反引号(`)标识起始
+		//用${}来引用变量
+		//而且所有的缩进和空格都会保留，是不是很爽？
+		
+	</script>
+</body>
+</html>

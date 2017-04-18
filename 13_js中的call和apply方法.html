@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js中的call和apply方法</title>
+</head>
+<body>
+	<script>
+		//js中的call和apply方法
+		//call方法
+		//call([thisObj[,arg1[,arg2[,...argN]]]])
+		//定义：调用一个对象中的方法，以另一个对象替换当前对象
+		//thisObj 将被用作当前对象的对象
+		//arg1,arg2,arg3,……argN 将被传递方法参数序列
+		
+		//说明：
+		//call方法用来代替另一个对象调用一个方法
+		//call方法将一个函数的对象上下文从初始的上下文改变为由thisObj指定的新对象
+		//如果没有提供thisObj参数，那么Global对象被用作thisObj
+		
+		//在call中传入对象
+	/*	
+		var sayName = function(){
+			alert(this.name);
+		}
+		var xiao = {
+			name:"tianxia"
+		}*/
+		//sayName.call(xiao);
+		//调用call方法时，函数内部的this对象会自动指向call方法的第一个参数，
+		//在上面这个例子中也就是xiao对象了
+		//所以在执行 sayName.call(xiao)的时候 函数内部的this.name会自动指向
+		//xiao.name
+		//因此输出结果为tianxia
+		
+		function Person1(){
+			this.name = "xiaoxiao";
+			this.sayName = function(){
+				alert(this.name);
+			}
+		}
+		function Person2(){
+			this.name = "tianxia";
+		}
+		//实例 = new 构造函数()
+		var pop = new Person2();
+		Person1.call(pop);
+		pop.sayName(); 
+
+	</script>
+</body>
+</html>

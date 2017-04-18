@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>let</title>
+	<style>
+		li{
+			width: 100%;
+			height: 30px;
+			background: #f99;
+			margin-bottom: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+	<script>
+		//var带来的不合理场景就是用来计数的循环变量泄露为全局变量
+		/*var a = [];
+		for(var i=0;i<10;i++){
+			a[i] = function(){
+				console.log(i);
+			}
+		}
+		a[6]();*/
+	/*	var oLis = document.getElementsByTagName("li");
+		//console.log(oLis.length);
+		for(var i=0;i<oLis.length;i++){
+			oLis[i].onclick = function(){
+				console.log(i); //无论点击哪一个都是8
+			}
+		}*/
+
+		/*var oLis = document.getElementsByTagName("li");
+		//console.log(oLis.length);
+		for(let i=0;i<oLis.length;i++){
+			oLis[i].onclick = function(){
+				console.log(i); //点击那个就会对应它的索引值
+			}
+		}*/
+
+		var oLis = document.getElementsByTagName("li");
+		//console.log(oLis.length);
+		for(var i=0;i<oLis.length;i++){
+			oLis[i].onclick = function(){
+				console.log(i); //点击那个就会对应它的索引值
+			}
+		}
+	</script>
+</body>
+</html>

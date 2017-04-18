@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>箭头函数</title>
+</head>
+<body>
+	<script>
+		'use strict';
+		var ff = function(v){
+			//console.log(v+v);
+			return v+v;
+		}
+		ff(1);
+		//alert("你的浏览器支持ES6");
+		
+		var f = v =>{
+			v;
+			console.log(v);  //2
+			return v;
+		}
+		f(2);
+		//相当于ES5中的
+		
+		var f = function(v){
+			console.log(v);  //1
+			return v;
+		}
+		f(1);
+
+		//总结
+		//在ES6中 允许使用箭头定义一个函数
+		// v => v
+		
+		//如果箭头函数不需要参数或者需要多个参数 就用圆括号代表参数部分
+		
+		var f = () => 5
+		//这个就相当 
+		var f = function(){
+			return 5;
+		}
+
+		var sum = (num1,num2) => num1+num2;
+		//等价于
+		var sum = function(num1,num2){
+			return num1+num2;
+		}
+
+		//如果箭头函数代码块 多于一条语句 就要使用大括号 将它们括起来，并且使用return返回
+		
+		var sum = (num1,num2) => {return num1+num2;}
+		//由于大括号被解释为代码块，所以如果箭头函数直接返回一个对象,必须在对象外面加上一个括号
+		var getTempItem = id =>({id:id,name:"Temp"});
+
+		//箭头函数可以与变量解构结合使用
+		const full =({ first,last}) => first + '' + last;
+		//等同于
+		function full(person){
+			return person.first + '' + person.last;
+		}
+
+		//使用箭头函数需要注意以下几点：
+		//1.函数体内的this对象，就是定义时所在的对象，而不是使用时所在的对象
+		//2.不可以当作构造函数，也就是说，不可以使用new命令，否则会抛出一个错误
+		//3.不可以使用arguments对象，该对象在函数体内不存在，如果要用可以用Rest参数代替
+		//4.不可以使用yield命令，因此箭头函数不能用作Generator函数
+		
+		//this指向了固定化,并不是因为箭头函数内部有绑定this的机制，
+		//实际原因是因为箭头函数根本没有自己的this
+		//导致内部的this就是外层代码块的this
+		//正因为没有this，所以不能用作构造函数
+		
+		//除了this
+	</script>
+</body>
+</html>

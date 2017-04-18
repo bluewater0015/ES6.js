@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>箭头函数</title>
+</head>
+<body>
+	<script>
+		class Animal{
+			constructor(){
+				this.type="animal";
+			}
+			says(say){
+				console.log(this);//Animal {type: "animal"}
+				var self = this;
+				setTimeout(function(){
+					//console.log(this); //Window //这个this指的是全局对象中的this
+					//console.log(this.type+"say"+say); //undefinedsayhi
+					console.log(self.type+"say"+say); //animalsayhi 这是一种方法
+				},100)
+			}
+		}
+		var animal = new Animal();
+		animal.says("hi");
+	</script>
+</body>
+</html>

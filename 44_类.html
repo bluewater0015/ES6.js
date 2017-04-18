@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		//创建一个Animal的类
+		class Animal{
+			//里面有一个构造方法
+			constructor(){
+				this.type="animal";
+			}
+			//constructor 函数外定义的属性和方法 所有实例都可以共享。
+			says(say){
+				console.log(this.type+"say"+say);
+			}
+		}
+		// 实例 = new 构造函数
+		var animal = new Animal();
+		animal.says("hello");
+
+		//子类继承父类 通过extends关键字可以继承
+		class Cat extends Animal{
+			constructor(){
+				//子类必须在constructor中调用 super方法 
+				//这是因为子类没有自己的this对象  而是继承父类的this对象
+				//然后对其加工 如果不用super方法  子类就得不到this对象
+				super();
+				this.type = "cat";
+			}
+
+		}
+		let cat = new Cat();
+		//调用父类的方法
+		cat.says("Hi");
+	</script>
+</body>
+</html>
